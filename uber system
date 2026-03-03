@@ -1,0 +1,128 @@
+uber-system/
+│
+├── docker-compose.yml
+├── README.md
+│
+├── api-gateway/
+│   ├── src/main/java/com/uber/gateway/
+│   │   ├── GatewayApplication.java
+│   │   ├── config/
+│   │   │   ├── RouteConfig.java
+│   │   │   └── SecurityConfig.java
+│   │   └── filter/
+│   │       └── AuthFilter.java
+│   └── pom.xml
+│
+├── user-service/
+│   ├── src/main/java/com/uber/user/
+│   │   ├── UserServiceApplication.java
+│   │   │
+│   │   ├── controller/
+│   │   │   └── UserController.java
+│   │   │
+│   │   ├── service/
+│   │   │   └── UserService.java
+│   │   │
+│   │   ├── repository/
+│   │   │   └── UserRepository.java
+│   │   │
+│   │   ├── model/
+│   │   │   └── User.java
+│   │   │
+│   │   ├── dto/
+│   │   │   └── UserRequestDTO.java
+│   │   │
+│   │   └── config/
+│   │       └── RedisConfig.java
+│   └── pom.xml
+│
+├── driver-service/
+│   ├── src/main/java/com/uber/driver/
+│   │   ├── DriverServiceApplication.java
+│   │   ├── controller/
+│   │   │   └── DriverController.java
+│   │   ├── service/
+│   │   │   └── DriverService.java
+│   │   ├── repository/
+│   │   │   └── DriverRepository.java
+│   │   ├── model/
+│   │   │   ├── Driver.java
+│   │   │   └── Vehicle.java
+│   │   ├── geo/
+│   │   │   └── GeoLocationService.java
+│   │   └── config/
+│   │       └── KafkaConfig.java
+│   └── pom.xml
+│
+├── ride-service/
+│   ├── src/main/java/com/uber/ride/
+│   │   ├── RideServiceApplication.java
+│   │   ├── controller/
+│   │   │   └── RideController.java
+│   │   ├── service/
+│   │   │   ├── RideService.java
+│   │   │   └── FareCalculator.java
+│   │   ├── repository/
+│   │   │   └── RideRepository.java
+│   │   ├── model/
+│   │   │   ├── Ride.java
+│   │   │   └── RideStatus.java
+│   │   ├── event/
+│   │   │   ├── RideRequestedEvent.java
+│   │   │   └── RideCompletedEvent.java
+│   │   └── config/
+│   │       └── KafkaProducerConfig.java
+│   └── pom.xml
+│
+├── matching-service/
+│   ├── src/main/java/com/uber/matching/
+│   │   ├── MatchingServiceApplication.java
+│   │   ├── service/
+│   │   │   └── MatchingService.java
+│   │   ├── strategy/
+│   │   │   ├── NearestDriverStrategy.java
+│   │   │   └── SurgePricingStrategy.java
+│   │   ├── kafka/
+│   │   │   └── RideRequestConsumer.java
+│   │   └── config/
+│   │       └── RedisGeoConfig.java
+│   └── pom.xml
+│
+├── payment-service/
+│   ├── src/main/java/com/uber/payment/
+│   │   ├── PaymentServiceApplication.java
+│   │   ├── controller/
+│   │   │   └── PaymentController.java
+│   │   ├── service/
+│   │   │   ├── PaymentService.java
+│   │   │   └── StripeGateway.java
+│   │   ├── model/
+│   │   │   └── Payment.java
+│   │   ├── kafka/
+│   │   │   └── RideCompletedConsumer.java
+│   │   └── config/
+│   │       └── KafkaConsumerConfig.java
+│   └── pom.xml
+│
+├── notification-service/
+│   ├── src/main/java/com/uber/notification/
+│   │   ├── NotificationServiceApplication.java
+│   │   ├── service/
+│   │   │   └── NotificationService.java
+│   │   ├── kafka/
+│   │   │   └── RideEventConsumer.java
+│   │   └── model/
+│   │       └── Notification.java
+│   └── pom.xml
+│
+└── common-lib/
+    ├── src/main/java/com/uber/common/
+    │   ├── dto/
+    │   │   ├── RideDTO.java
+    │   │   └── DriverDTO.java
+    │   ├── enums/
+    │   │   ├── RideStatus.java
+    │   │   └── PaymentStatus.java
+    │   └── utils/
+    │       └── DistanceUtil.java
+    └── pom.xml
